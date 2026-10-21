@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a call — Abdullah</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef0f4;--ink:#14161f;--mut:#5b6072;--blue:#2b4bff;--lime:#c8ff00;--org:#ff5a1f;--line:#e1e3ea;--card:#fff}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent)}
+nav b{font-size:1.4rem;font-weight:800;letter-spacing:-.04em}
+nav div{display:flex;gap:28px;align-items:center}
+nav .l{color:var(--mut)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:#fff;padding:14px 26px;border-radius:99px;font:inherit;font-weight:600;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:scale(1.04);background:var(--blue)}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:5vw;align-items:start;padding:6svh 5vw 8svh;max-width:1300px;margin:0 auto}
+h1{font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.05em;font-weight:800;font-stretch:75%;margin:0}
+.rel{position:relative;display:inline-block;white-space:nowrap;isolation:isolate}
+.circ{position:absolute;overflow:visible;pointer-events:none;z-index:-1}
+.circ path{fill:none;stroke:var(--lime);stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:dr 1.3s .6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.lead{max-width:30ch;font-size:1.25rem;color:var(--mut);margin:28px 0 32px}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.pts li{display:flex;align-items:center;gap:12px;font-weight:600}
+.pts i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.85rem;flex:none}
+.pts li:nth-child(1) i{background:var(--lime)}.pts li:nth-child(2) i{background:#c266ff;color:#fff}.pts li:nth-child(3) i{background:var(--org);color:#fff}
+form{background:var(--card);border-radius:36px;padding:clamp(22px,3.5vw,44px);display:grid;gap:22px;box-shadow:0 30px 60px -30px rgba(20,22,31,.25)}
+.f{display:grid;gap:8px}
+label,.lb{font-weight:600;font-size:.95rem}
+label small{color:var(--mut);font-weight:400}
+input,textarea{font:inherit;color:var(--ink);background:#f3f4f8;border:2px solid transparent;border-radius:18px;padding:14px 18px;width:100%;transition:border-color .2s,background .2s}
+textarea{resize:vertical;min-height:110px}
+input:focus,textarea:focus{outline:0;border-color:var(--ink);background:#fff}
+input.bad,textarea.bad{border-color:var(--org)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{padding:10px 18px;border-radius:99px;background:#f3f4f8;font-weight:600;cursor:pointer;transition:transform .2s,background .2s,color .2s;border:2px solid transparent}
+.chips label:hover{transform:translateY(-2px)}
+.chips input:checked+label{background:var(--ink);color:#fff}
+.chips input:focus-visible+label{border-color:var(--blue)}
+.err{color:var(--org);font-size:.85rem;min-height:0;margin:0;display:none}
+.f.bad .err{display:block}
+.wa{background:#25d366;color:#0b1f12;width:100%;padding:16px 26px;font-size:1.05rem}
+.wa:hover{background:#1fb858}
+.note{margin:0;text-align:center;color:var(--mut);font-size:.88rem}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.r2{grid-template-columns:1fr}nav .l{display:none}}
+@media (prefers-reduced-motion:reduce){.circ path{animation:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<nav><a href="index.html"><b>abdullah</b></a><div><a class="l" href="index.html#services">Services</a><a class="l" href="index.html#work">Work</a><a class="l" href="index.html#pricing">Work with me</a><a class="btn" href="contact.html" style="padding:12px 22px">Book a call</a></div></nav>
+<main class="wrap">
+<section>
+<h1>Let’s <span class="rel">talk<svg class="circ" aria-hidden="true"><path pathLength="1"/></svg></span><br>about your business.</h1>
+<p class="lead">Tell me what slows you down. I’ll reply on WhatsApp, usually the same day. No pressure, no jargon.</p>
+<ul class="pts"><li><i>✓</i>Free first call</li><li><i>✓</i>Straight answers, no sales script</li><li><i>✓</i>One person from start to finish</li></ul>
+</section>
+<form id="f" novalidate>
+<div class="r2">
+<div class="f"><label for="n">Your name</label><input id="n" name="n" autocomplete="name" placeholder="Ayesha Khan" required><p class="err">Please enter your name.</p></div>
+<div class="f"><label for="p">Phone / WhatsApp</label><input id="p" name="p" type="tel" autocomplete="tel" placeholder="03XX XXXXXXX" required><p class="err">Please enter a valid number.</p></div>
+</div>
+<div class="f"><label for="e">Email <small>(optional)</small></label><input id="e" name="e" type="email" autocomplete="email" placeholder="you@company.com"></div>
+<div class="f"><span class="lb">What do you need?</span>
+<div class="chips" id="sv">
+<span><input type="checkbox" id="s1" value="AI automation"><label for="s1">AI automation</label></span>
+<span><input type="checkbox" id="s2" value="Voice agents"><label for="s2">Voice agents</label></span>
+<span><input type="checkbox" id="s3" value="Web development"><label for="s3">Web development</label></span>
+<span><input type="checkbox" id="s4" value="App development"><label for="s4">App development</label></span>
+<span><input type="checkbox" id="s5" value="AI coaching"><label for="s5">AI coaching</label></span>
+<span><input type="checkbox" id="s6" value="Chatbots & agents"><label for="s6">Chatbots &amp; agents</label></span>
+</div></div>
+<div class="f"><label for="m">Tell me a bit about it</label><textarea id="m" name="m" placeholder="What takes up your time today?"></textarea></div>
+<button class="btn wa" type="submit"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.600.2.3.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.600-.1l1.900.9c.3.1.5.2.5.3.1.1.1.600-.1 1.200z"/></svg>Send on WhatsApp</button>
+<p class="note">This opens WhatsApp with your details filled in. Nothing is stored on this site.</p>
+</form>
+</main>
+<script>
+(function(){
+var NUM='923244843070';
+/* hand-drawn loop behind "talk" */
+function ring(){var s=document.querySelector('.circ'),p=s.parentNode,pw=p.offsetWidth,ph=p.offsetHeight,fs=parseFloat(getComputedStyle(p).fontSize),h=fs*1.0,w=pw+fs*.35;
+s.setAttribute('viewBox','0 0 '+w+' '+h);s.style.cssText='left:'+((pw-w)/2)+'px;top:'+((ph-h)/2)+'px;width:'+w+'px;height:'+h+'px';
+var cx=w/2,cy=h/2,rx=w/2-4,ry=h/2-4,pts=[],n=90,a0=Math.PI*.62,sw=Math.PI*2*1.09;
+for(var i=0;i<=n;i++){var t=i/n,a=a0+sw*t,c=Math.cos(a),sn=Math.sin(a),wb=1+.012*Math.sin(t*7);
+pts.push((cx+Math.sign(c)*Math.pow(Math.abs(c),.667)*rx*wb).toFixed(1)+' '+(cy+(t-.5)*h*.05+Math.sign(sn)*Math.pow(Math.abs(sn),.667)*ry*wb).toFixed(1))}
+var pa=s.querySelector('path');pa.setAttribute('d','M'+pts.join('L'));pa.style.strokeWidth=Math.max(3,fs*.05)+'px'}
+ring();addEventListener('resize',ring);if(document.fonts)document.fonts.ready.then(ring);
+var f=document.getElementById('f');
+function bad(el,on){el.classList.toggle('bad',on);el.closest('.f').classList.toggle('bad',on)}
+['n','p'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){bad(this,false)})});
+f.addEventListener('submit',function(ev){ev.preventDefault();
+var n=document.getElementById('n'),p=document.getElementById('p'),e=document.getElementById('e'),m=document.getElementById('m');
+var okN=n.value.trim().length>1,okP=p.value.replace(/\D/g,'').length>=10;
+bad(n,!okN);bad(p,!okP);if(!okN||!okP){(okN?p:n).focus();return}
+var sv=[].map.call(document.querySelectorAll('#sv input:checked'),function(x){return x.value});
+var t='Hi Abdullah, I would like to book a call.\n\nName: '+n.value.trim()+'\nPhone: '+p.value.trim()+(e.value.trim()?'\nEmail: '+e.value.trim():'')+(sv.length?'\nInterested in: '+sv.join(', '):'')+(m.value.trim()?'\n\nAbout my business:\n'+m.value.trim():'');
+location.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(t)});
+})();
+</script>
+</body>
+</html>
