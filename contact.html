@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Book a call — Abdullah</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Bricolage Grotesque';src:url(fonts/bricolage.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%;font-style:normal;font-display:swap}</style>
 <style>
 :root{--bg:#eef0f4;--ink:#14161f;--mut:#5b6072;--blue:#2b4bff;--lime:#c8ff00;--org:#ff5a1f;--line:#e1e3ea;--card:#fff}
 *,*::before,*::after{box-sizing:border-box}
@@ -38,7 +39,7 @@ input:focus,textarea:focus{outline:0;border-color:var(--ink);background:#fff}
 input.bad,textarea.bad{border-color:var(--org)}
 .r2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{position:relative}.chips input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
 .chips label{padding:10px 18px;border-radius:99px;background:#f3f4f8;font-weight:600;cursor:pointer;transition:transform .2s,background .2s,color .2s;border:2px solid transparent}
 .chips label:hover{transform:translateY(-2px)}
 .chips input:checked+label{background:var(--ink);color:#fff}
