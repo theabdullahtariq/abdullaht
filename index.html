@@ -594,7 +594,7 @@ nav .mm a:last-child{border-bottom:0}
 @media (min-width:701px){
   .fw{z-index:2;align-self:end}              /* portrait above the headline, standing on the bottom edge */
   .hl>span{margin-right:-9vw}                /* headline tucks behind the portrait */
-  .hr>span{margin-left:-9vw}
+  .hr>span{margin-left:-1vw}
   .hx .fm{background:none;box-shadow:none;border-radius:0;overflow:visible;animation:none}  /* remove the box */
   .pop{clip-path:none}
   .ph{bottom:-5%}                            /* extra bleed so the 3D tilt never shows a gap */
@@ -607,6 +607,7 @@ nav .mm a:last-child{border-bottom:0}
   .stg::before{display:none}                 /* drop the purple glow: one accent */
   .fw>b{display:none}                        /* crop marks no longer have a box to frame */
   .ln{left:4vw;margin-left:0;z-index:3}      /* scroll line moves off the hoodie */
+ .fw .tag:nth-of-type(2){top:3%!important;right:-8%!important}
 }
 </style>
 </head>
