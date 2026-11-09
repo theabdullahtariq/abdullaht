@@ -609,6 +609,15 @@ nav .mm a:last-child{border-bottom:0}
   .ln{left:4vw;margin-left:0;z-index:3}      /* scroll line moves off the hoodie */
  .fw .tag:nth-of-type(2){top:3%!important;right:-8%!important}
 }
+  .cap{padding:clamp(56px,10svh,110px) 5vw;text-align:center}
+.cap-k{margin:0 0 28px;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.cap-r{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:1200px;margin:0 auto}
+.cap-r span{background:var(--c);color:var(--t);border:2px solid #14161f;border-radius:99px;
+  padding:.45em 1.1em;font-size:clamp(1.5rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;
+  transition:opacity .8s,transform .8s,rotate .35s cubic-bezier(.34,1.56,.64,1),scale .35s cubic-bezier(.34,1.56,.64,1)}
+.cap-r span:nth-child(odd){rotate:-2deg}
+.cap-r span:nth-child(even){rotate:2deg}
+.cap-r span:hover{rotate:0deg;scale:1.07}
 </style>
 </head>
 <body>
@@ -620,11 +629,18 @@ nav .mm a:last-child{border-bottom:0}
 <b></b><b></b><b></b><b></b><span class="tag" data-r="-8" style="left:-14%;top:12%;background:#c8ff00;color:#111">AI agents</span><span class="tag" data-r="7" style="right:-14%;top:30%;background:#ff5a1f;color:#fff">Workflows</span><span class="tag" data-r="-5" style="left:-12%;bottom:30%;background:#6d4bff;color:#fff">Chatbots</span><span class="tag" data-r="6" style="right:-12%;bottom:18%;background:#ffd23f;color:#111">Voice agents</span></div>
 <span class="hr"><span><i style="--k:2">Never</i></span><span><i style="--k:3">Sleeps.</i></span><p class="hp">I build AI automations, voice agents, websites and apps that run your business around the clock, and I coach you to use AI too.</p><div class="hbs"><a class="btn hb" href="contact.html">Book a call</a><button class="btn hv" type="button" id="hv" aria-haspopup="dialog"><i class="hv-dot" aria-hidden="true"></i>Talk to my AI</button></div></span></h1>
 <i class="ln" id="ln"></i></div><div class="cur" id="cur"></div></header>
-
-<div class="mq" aria-hidden="true"><div>
-<span>AI automation</span><em>●</em><span>Voice agents</span><em>●</em><span>Web development</span><em>●</em><span>App development</span><em>●</em><span>AI coaching</span><em>●</em><span>Chatbots</span><em>●</em><span>n8n workflows</span><em>●</em>
-<span>AI automation</span><em>●</em><span>Voice agents</span><em>●</em><span>Web development</span><em>●</em><span>App development</span><em>●</em><span>AI coaching</span><em>●</em><span>Chatbots</span><em>●</em><span>n8n workflows</span><em>●</em>
-</div></div>
+<section class="cap" aria-label="What I build">
+  <p class="cap-k rv">What I build</p>
+  <div class="cap-r">
+    <span class="rv" style="--c:#c8ff00;--t:#14161f">AI automation</span>
+    <span class="rv" style="--c:#ff5a1f;--t:#fff">Voice agents</span>
+    <span class="rv" style="--c:#c266ff;--t:#fff">Web development</span>
+    <span class="rv" style="--c:#bcd8ff;--t:#14161f">App development</span>
+    <span class="rv" style="--c:#fff;--t:#14161f">AI coaching</span>
+    <span class="rv" style="--c:#14161f;--t:#fff">Chatbots</span>
+    <span class="rv" style="--c:#c8ff00;--t:#14161f">n8n workflows</span>
+  </div>
+</section>
 
 <div class="pin" id="pin-issues"><section class="iss" id="issues"><h2 class="rv">Tired of these <span style="white-space:nowrap"><span class="rel">issues<svg class="circ" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M120 8C60 2 6 16 6 42c0 26 60 34 120 30 52-4 72-22 68-42C190 12 150 4 96 8"/></svg></span>?</span></h2>
 <div class="tabs rv" role="group" aria-label="Compare with"><button aria-pressed="true">Manual work</button><button aria-pressed="false">Agencies</button><button aria-pressed="false">DIY tools</button></div>
