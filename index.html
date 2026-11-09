@@ -588,6 +588,27 @@ nav .mm a:last-child{border-bottom:0}
 @media (max-width:700px){.hbs{align-self:center;justify-content:center;margin-top:14px}.hbs .hb{margin-top:0}.hv,.hbs .hb{padding:11px 16px;font-size:.95rem}.nite .moon{right:6vw;top:11%}}
 @media (max-width:360px){.hv,.hbs .hb{padding:10px 13px;font-size:.88rem}}
 </style>
+ <style>
+/* ===== Hero v2: layered portrait, one accent ===== */
+@property --og{syntax:'<color>';inherits:true;initial-value:#ff5a1f}
+@media (min-width:701px){
+  .fw{z-index:2;align-self:end}              /* portrait above the headline, standing on the bottom edge */
+  .hl>span{margin-right:-9vw}                /* headline tucks behind the portrait */
+  .hr>span{margin-left:-9vw}
+  .hx .fm{background:none;box-shadow:none;border-radius:0;overflow:visible;animation:none}  /* remove the box */
+  .pop{clip-path:none}
+  .ph{bottom:-5%}                            /* extra bleed so the 3D tilt never shows a gap */
+  .orb{width:120%;left:-10%;top:-28%;border-radius:50%;   /* solid disc becomes a soft glow */
+    background:radial-gradient(closest-side,
+      color-mix(in srgb,var(--og) 85%,transparent),
+      color-mix(in srgb,var(--og) 35%,transparent) 55%,transparent);
+    animation:cr 1.3s cubic-bezier(.7,0,.2,1) .1s both;transition:--og .9s}
+  .stg.night .orb{--og:#c8ff00}              /* glow turns lime with the night shift */
+  .stg::before{display:none}                 /* drop the purple glow: one accent */
+  .fw>b{display:none}                        /* crop marks no longer have a box to frame */
+  .ln{left:4vw;margin-left:0;z-index:3}      /* scroll line moves off the hoodie */
+}
+</style>
 </head>
 <body>
 <nav><b>abdullah</b><div><a class="l" href="#services">Services</a><a class="l" href="#work">Work</a><a class="l" href="#pricing">Work with me</a><button class="mn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mm"><span></span><span></span></button><a class="btn" href="contact.html">Book a call</a></div><div class="mm" id="mm"><a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Work with me</a><a href="#faq">FAQ</a></div></nav>
@@ -725,7 +746,7 @@ if(!rmh){try{history.scrollRestoration='manual'}catch(x){}scrollTo(0,0);var de=d
 function lp(a,b,t){return a+(b-a)*t}function cl(v){return Math.min(Math.max(v,0),1)}
 function rd(){var r=hx.getBoundingClientRect();tg=cl(-r.top/(hx.offsetHeight-VH()||1)/.45);ex=cl((r.bottom/VH()-.2)/.5)}
 function dr(t){t=t||0;var vw=innerWidth,vh=VH()-84,m=vw<700,p=cl((cu-.1)/.5);p=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
-var e=1-Math.pow(1-cl(cu/.75),3),q=cl((cu-.62)/.2),h0=m?.36*vh:.66*vh,h1=m?.4*vh:.72*vh,w0=m?Math.min(.6*vw,.8*h0):.8*h0,w1=m?Math.min(.64*vw,.8*h1):.8*h1;
+var e=1-Math.pow(1-cl(cu/.75),3),q=cl((cu-.62)/.2),h0=m?.36*vh:.8*vh,h1=m?.4*vh:.86*vh,w0=m?Math.min(.6*vw,.8*h0):.8*h0,w1=m?Math.min(.64*vw,.8*h1):.8*h1;
 fw.style.width=lp(w0,w1,p)+'px';fw.style.height=lp(h0,h1,p)+'px';fm.style.borderRadius=lp(4,28,p)+'px';fw.style.setProperty('--r',lp(4,28,p)+'px');
 var tf='scale('+(lp(1,1.07,e)*(1+Math.sin(t/1400)*.008*q))+')';ph.style.transform=tf;orb.style.transform='translateY('+lp(0,-6,e)+'%) scale('+lp(1,1.3,e)+')';
 fw.style.setProperty('--b',cl((cu-.35)/.25));
@@ -734,7 +755,7 @@ ln.style.setProperty('--f',cu);ln.style.opacity=1-cl((cu-.9)*10);
 sx+=(hmx-sx)*.07;sy+=(hmy-sy)*.07;
 var sk=Math.max(-5,Math.min(5,(tg-cu)*220));
 hL.style.transform='translateX('+(-sx*22)+'px) skewY('+sk+'deg)';hR.style.transform='translateX('+(sx*22)+'px) skewY('+(-sk)+'deg)';
-var nz=cl((cu-.28)/.42);nz=nz*nz*(3-2*nz)*ex;var base='color-mix(in srgb,var(--ink) '+lp(28,52,p)+'%,var(--bg))';
+var nz=cl((cu-.28)/.42);nz=nz*nz*(3-2*nz)*ex;var base='var(--org)';
 if(Math.abs(nz-nt0)>.002||(nz<.002&&nt0!==0)){nt0=nz<.002?0:nz;var on=nz>=.002,pc=(nz*100).toFixed(1)+'%',mx2=function(a,b,c){return 'color-mix(in srgb,'+a+' '+pc+','+(c||b)+')'};
 stgEl.style.backgroundColor=on?'rgba(11,13,31,'+nz.toFixed(3)+')':'';nite.style.opacity=on?nz.toFixed(3):0;
 hL.style.color=on?mx2('#f4f5fb','var(--ink)'):'';
