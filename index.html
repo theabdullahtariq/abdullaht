@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="theme-color" content="#0f1119" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f7f9" media="(prefers-color-scheme: light)">
  <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('loading')</script>
 <link rel="preload" href="assets/paper.webp" as="image">
 <title>Abdullah — AI automation, voice agents, web &amp; app development, AI coaching</title>
@@ -723,6 +725,22 @@ html:not(.loading) .ai-fab{animation:aifi .8s cubic-bezier(.34,1.56,.64,1) .5s b
 @keyframes aifi{from{opacity:0;transform:translateY(30px) scale(.8)}}
 @media (max-width:700px){.ai-fab{padding:8px 18px 8px 8px;font-size:.95rem;gap:10px}.ai-ic{width:40px;height:40px}.ai-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.ai-fab,.ai-fab::before,.ai-ic i,.ai-hint{animation:none!important}.ai-hint{display:none}}
+</style>
+ <style>
+/* ===== Mobile pass ===== */
+@supports (overflow:clip){body{overflow-x:clip}}
+nav{-webkit-backdrop-filter:blur(12px)}
+@media (max-width:700px){
+:root{--sp:clamp(48px,8svh,80px)}
+.hx{height:260svh}
+.capp{--seg:34svh}
+.pin{height:170svh}
+#pin-solution{height:200svh}
+.ai-fab{padding:8px;gap:0;right:max(14px,env(safe-area-inset-right));bottom:max(14px,calc(env(safe-area-inset-bottom) + 6px))}
+.ai-ic{width:50px;height:50px}
+.ai-fab>span:not(.ai-ic){overflow:hidden;white-space:nowrap;max-width:0;opacity:0;animation:ailab 6s 2.2s both}
+}
+@keyframes ailab{0%{max-width:0;opacity:0;padding:0}10%,80%{max-width:9em;opacity:1;padding:0 14px 0 12px}100%{max-width:0;opacity:0;padding:0}}
 </style>
 </head>
  
