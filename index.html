@@ -705,6 +705,25 @@ html.loading:not(.ldr-go) #hx *,html.loading:not(.ldr-go) #hx *::before,html.loa
 @media (min-width:900px){#pricing .pr .card:nth-child(2).on{scale:1.035}}
 @media (hover:none){#pricing .pr .card.on:hover{transform:none}}
 </style>
+<style>
+/* ===== Floating "Talk to my AI" ===== */
+.ai-fab{position:fixed;z-index:55;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;padding:10px 24px 10px 10px;border:0;border-radius:99px;background:#c8ff00;color:#14161f;font:inherit;font-weight:700;font-size:1.02rem;letter-spacing:-.01em;cursor:pointer;box-shadow:0 14px 34px -10px rgba(200,255,0,.55),0 10px 24px -8px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.ai-fab:hover{transform:translateY(-3px) scale(1.04)}
+.ai-fab:active{transform:scale(.97)}
+.ai-fab::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;animation:aifp 2.4s ease-out infinite}
+@keyframes aifp{0%{box-shadow:0 0 0 0 rgba(200,255,0,.6)}100%{box-shadow:0 0 0 18px rgba(200,255,0,0)}}
+.ai-ic{display:flex;align-items:center;justify-content:center;gap:3px;width:44px;height:44px;border-radius:50%;background:#14161f}
+.ai-ic i{display:block;width:3px;height:16px;border-radius:2px;background:#c8ff00;animation:aiw 1.1s ease-in-out infinite}
+.ai-ic i:nth-child(2){animation-delay:.15s}.ai-ic i:nth-child(3){animation-delay:.3s}.ai-ic i:nth-child(4){animation-delay:.45s}
+@keyframes aiw{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.ai-hint{position:absolute;right:0;bottom:calc(100% + 14px);white-space:nowrap;font-style:normal;background:#14161f;color:#f4f5fb;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:.88rem;font-weight:600;pointer-events:none;box-shadow:0 12px 28px -10px rgba(0,0,0,.6);animation:aih 8s 3.2s both}
+@keyframes aih{0%{opacity:0;transform:translateY(8px)}8%,80%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+html.loading .ai-fab{display:none}
+html:not(.loading) .ai-fab{animation:aifi .8s cubic-bezier(.34,1.56,.64,1) .5s backwards}
+@keyframes aifi{from{opacity:0;transform:translateY(30px) scale(.8)}}
+@media (max-width:700px){.ai-fab{padding:8px 18px 8px 8px;font-size:.95rem;gap:10px}.ai-ic{width:40px;height:40px}.ai-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.ai-fab,.ai-fab::before,.ai-ic i,.ai-hint{animation:none!important}.ai-hint{display:none}}
+</style>
 </head>
  
 <body>
@@ -1243,5 +1262,7 @@ C.forEach(function(c){c.classList.remove('rv');c.style.transitionDelay='';c.clas
 var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){C.forEach(function(c){c.classList.add('on')});io.disconnect()}},{threshold:.1,rootMargin:'0px 0px -12% 0px'});
 io.observe(G);
 })();</script>
+ <button class="ai-fab" id="aiFab" type="button" aria-label="Talk to my AI"><span class="ai-ic" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Talk to my AI</span><em class="ai-hint" aria-hidden="true">Ask my AI anything — live demo</em></button>
+<script>(function(){var f=document.getElementById('aiFab'),h=document.getElementById('hv');if(!f||!h)return;f.addEventListener('click',function(){h.click()})})();</script>
 </body>
 </html>
