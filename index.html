@@ -1082,14 +1082,14 @@ unavailable:['The live demo isn’t switched on yet. Book a call and I’ll show
 error:['Couldn’t start the call. Check that your microphone is allowed and try again.','Try again']};
 function set(s){dlg.dataset.s=s;tx.textContent=T[s][0];go.textContent=T[s][1];go.disabled=s==='connecting'}
 function loadSdk(){if(window.RetellWebClient)return Promise.resolve(window.RetellWebClient);
-if(!sdk)sdk=import('https://cdn.jsdelivr.net/npm/retell-client-js-sdk@2/+esm').then(function(m){return m.RetellWebClient}).catch(function(e){sdk=null;throw e});return sdk}
+if(!sdk)sdk=import('https://cdn.jsdelivr.net/npm/retell-client-js-sdk@3/+esm').then(function(m){return m.RetellWebClient}).catch(function(e){sdk=null;throw e});return sdk}
 function stop(){active=false;if(client){try{client.stopCall()}catch(e){}client=null}}
 function start(){set('connecting');active=true;
 fetch(VOICE.endpoint,{method:'POST'}).then(function(r){if(!r.ok)throw{u:1};return r.json()}).then(function(d){if(!d||!d.access_token)throw{u:1};
 return loadSdk().then(function(C){if(!active)return;client=new C();
 client.on('call_started',function(){set('live')});client.on('agent_start_talking',function(){set('speaking')});client.on('agent_stop_talking',function(){if(active)set('live')});
 client.on('call_ended',function(){stop();set('ended')});client.on('error',function(){stop();set('error')});
-return client.startCall({accessToken:d.access_token})})}).catch(function(e){stop();set(e&&e.u?'unavailable':'error')})}
+return client.startCall({callId:d.call_id,accessToken:d.access_token,transport:d.transport,iceServers:d.ice_servers})})}).catch(function(e){stop();set(e&&e.u?'unavailable':'error')})}
 open.addEventListener('click',function(){set('idle');dlg.showModal()});
 ['pointerenter','focus','touchstart'].forEach(function(ev){open.addEventListener(ev,function(){if(!window.RetellWebClient)loadSdk().catch(function(){})},{once:true,passive:true})});
 go.addEventListener('click',function(){var s=dlg.dataset.s;if(s==='live'||s==='speaking'){stop();set('ended')}else start()});
