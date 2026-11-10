@@ -754,7 +754,15 @@ nav{-webkit-backdrop-filter:blur(12px)}
 html.loading .sc-cue{display:none}
 @media (prefers-reduced-motion:reduce){.sc-cue i{animation:none}}
 </style>
- <head>
+ <style>
+/* ===== Scroll cue v3: mouse icon ===== */
+.sc-cue{padding:12px 15px;gap:0}
+.sc-cue i{display:none}
+.sc-mouse{display:block;position:relative;width:22px;height:34px;border:2px solid #f4f5fb;border-radius:12px}
+.sc-mouse::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#c8ff00;animation:scw 1.6s ease-in-out infinite}
+@keyframes scw{0%{opacity:0;translate:0 0}25%{opacity:1}75%{opacity:1;translate:0 9px}100%{opacity:0;translate:0 12px}}
+@media (prefers-reduced-motion:reduce){.sc-mouse::after{animation:none}}
+</style>
 </head>
  
 <body>
@@ -1295,7 +1303,7 @@ io.observe(G);
 })();</script>
  <button class="ai-fab" id="aiFab" type="button" aria-label="Talk to my AI"><span class="ai-ic" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Talk to my AI</span><em class="ai-hint" aria-hidden="true">Ask my AI anything — live demo</em></button>
 <script>(function(){var f=document.getElementById('aiFab'),h=document.getElementById('hv');if(!f||!h)return;f.addEventListener('click',function(){h.click()})})();</script>
- <div class="sc-cue" id="scCue" aria-hidden="true"><span>Scroll</span><i></i></div>
+<div class="sc-cue" id="scCue" aria-hidden="true"><span class="sc-mouse"></span></div>
 <script>(function(){var c=document.getElementById('scCue');if(!c)return;var ok=false;
 function u(){c.classList.toggle('show',ok&&scrollY<30)}
 setTimeout(function(){ok=true;u()},4500);
