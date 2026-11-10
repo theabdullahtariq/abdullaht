@@ -667,27 +667,30 @@ html.loading:not(.ldr-go) #hx *,html.loading:not(.ldr-go) #hx *::before,html.loa
 </head>
  
 <body>
-<div class="pl" id="pl" aria-hidden="true">
-  <div class="pl-n" id="pln">0</div>
-  <p class="pl-c">Abdullah,<br>portfolio</p>
+<div class="ldr" id="ldr" aria-hidden="true">
+  <div class="ldr-top"><b>abdullah</b><span>Portfolio · 2026</span></div>
+  <div class="ldr-n"><span id="ldrn">0</span><i>%</i></div>
+  <div class="ldr-s"><em></em><span id="ldrs">Automations</span></div>
+  <i class="ldr-ln" id="ldrl"></i>
 </div>
 <script>(function(){
-var el=document.getElementById('pl'),n=document.getElementById('pln'),root=document.documentElement;
+var el=document.getElementById('ldr'),n=document.getElementById('ldrn'),s=document.getElementById('ldrs'),l=document.getElementById('ldrl'),root=document.documentElement;
 if(!el||!root.classList.contains('loading'))return;
-var MIN=2200,MAX=4000,t0=performance.now(),ready=false,over=false;
+var W=['Automations','Voice agents','Websites','Chatbots','Ready'],MIN=2400,t0=performance.now(),ready=false,over=false,wi=-1;
 function ok(){ready=true}
 addEventListener('DOMContentLoaded',function(){var im=document.getElementById('ph');if(!im||im.complete)ok();else{im.addEventListener('load',ok);im.addEventListener('error',ok)}});
 addEventListener('load',ok);setTimeout(ok,3000);
 function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
 function done(){if(over)return;over=true;el.classList.add('fin');
-  setTimeout(function(){root.classList.add('pl-go');el.classList.add('go')},450);
-  setTimeout(function(){root.classList.remove('loading','pl-go');el.remove()},1800)}
+  setTimeout(function(){root.classList.add('ldr-go');el.classList.add('go')},500);
+  setTimeout(function(){root.classList.remove('loading','ldr-go');el.remove()},1800)}
 function tick(now){var e=now-t0,v=ease(Math.min(e/MIN,1))*100;
-  if(!ready&&e<MAX)v=Math.min(v,97);
-  n.textContent=Math.floor(v);
-  if(v>=100){n.textContent=100;done();return}
+  if(!ready)v=Math.min(v,97);
+  n.textContent=Math.floor(v);l.style.setProperty('--f',(v/100).toFixed(3));
+  var k=Math.min(4,Math.floor(v/25));if(k!==wi){wi=k;s.textContent=W[k]}
+  if(v>=100){n.textContent=100;l.style.setProperty('--f',1);done();return}
   requestAnimationFrame(tick)}
-requestAnimationFrame(tick);setTimeout(done,MAX+1500);
+requestAnimationFrame(tick);setTimeout(done,9000);
 })();</script>
 <nav><b>abdullah</b><div><a class="l" href="#services">Services</a><a class="l" href="#work">Work</a><a class="l" href="#pricing">Work with me</a><button class="mn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mm"><span></span><span></span></button><a class="btn" href="contact.html">Book a call</a></div><div class="mm" id="mm"><a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Work with me</a><a href="#faq">FAQ</a></div></nav>
 
