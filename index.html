@@ -632,19 +632,25 @@ nav .mm a:last-child{border-bottom:0}
 </style>
  <style> 
 /* ===== Preloader ===== */
-.pl{--paper:#d2ff00;width:auto;height:auto;border:0;border-radius:0;padding:0;opacity:1;transform:none;display:none;position:fixed;inset:0;z-index:200;overflow:hidden;
-  background:var(--paper) url(assets/paper.webp) center/cover;background-blend-mode:multiply;
-  color:#14161f;will-change:transform;box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
-html.loading .pl{display:block}
+/* ===== Preloader ===== */
+.ldr{display:none;position:fixed;inset:0;z-index:200;overflow:hidden;background:#0b0d1f;color:#f4f5fb;will-change:transform}
+html.loading .ldr{display:block}
 html.loading{overflow:hidden}
-.pl-n{position:absolute;left:5vw;bottom:3svh;font-size:clamp(7rem,min(27vw,38svh),24rem);font-weight:800;line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums;transition:transform .6s cubic-bezier(.7,0,.2,1),opacity .5s}
-.pl-c{position:absolute;right:11vw;bottom:5svh;margin:0;font-size:clamp(.9rem,1.1vw,1.1rem);font-weight:500;line-height:1.25}
-.pl.fin .pl-n{transform:translateY(-14%);opacity:0}
-.pl.fin .pl-c{opacity:0;transition:opacity .4s}
-.pl.go{transform:translateY(-104%) rotate(-1.4deg);border-radius:0 0 50% 50%/0 0 9svh 9svh;pointer-events:none;
-  transition:transform 1.25s cubic-bezier(.76,0,.18,1),border-radius 1.25s cubic-bezier(.76,0,.18,1)}
-/* hold the hero's entrance animations until the sheet starts lifting */
-html.loading:not(.pl-go) #hx *,html.loading:not(.pl-go) #hx *::before,html.loading:not(.pl-go) #hx *::after{animation-play-state:paused!important}
+.ldr::before{content:"";position:absolute;width:56vw;height:56vw;right:-14vw;bottom:-26vw;border-radius:50%;background:radial-gradient(closest-side,rgba(255,90,31,.42),rgba(255,90,31,0));filter:blur(60px)}
+.ldr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:#c8ff00;opacity:0;transition:opacity .2s}
+.ldr-top{position:absolute;z-index:1;left:5vw;right:5vw;top:max(3svh,18px);display:flex;justify-content:space-between;align-items:center;font-size:.85rem;font-weight:600;letter-spacing:.02em;color:rgba(244,245,251,.7)}
+.ldr-top b{font-size:1.3rem;font-weight:800;letter-spacing:-.04em;color:#f4f5fb}
+.ldr-n{position:absolute;z-index:1;left:5vw;bottom:9svh;display:flex;align-items:flex-start;font-size:clamp(6rem,min(22vw,34svh),19rem);font-weight:800;font-stretch:75%;letter-spacing:-.04em;line-height:.8;font-variant-numeric:tabular-nums}
+.ldr-n i{font-style:normal;color:#c8ff00;font-size:.32em;line-height:1;margin:.1em 0 0 .08em;letter-spacing:0}
+.ldr-s{position:absolute;z-index:1;right:5vw;bottom:9svh;display:flex;align-items:center;gap:10px;font-size:clamp(.95rem,1.2vw,1.15rem);font-weight:600;color:rgba(244,245,251,.75)}
+.ldr-s em{width:8px;height:8px;border-radius:50%;background:#c8ff00;animation:ldrp 1.6s infinite}
+@keyframes ldrp{0%{box-shadow:0 0 0 0 rgba(200,255,0,.7)}70%,100%{box-shadow:0 0 0 9px rgba(200,255,0,0)}}
+.ldr-ln{position:absolute;z-index:1;left:5vw;right:5vw;bottom:max(4svh,20px);height:2px;background:linear-gradient(90deg,#c8ff00 calc(var(--f,0)*100%),rgba(255,255,255,.16) 0)}
+.ldr-n,.ldr-s,.ldr-top,.ldr-ln{transition:transform .6s cubic-bezier(.7,0,.2,1),opacity .45s}
+.ldr.fin .ldr-n,.ldr.fin .ldr-s,.ldr.fin .ldr-top,.ldr.fin .ldr-ln{opacity:0;transform:translateY(-18px)}
+.ldr.go{transform:translateY(-100%);transition:transform 1.1s cubic-bezier(.76,0,.18,1)}
+.ldr.go::after{opacity:1}
+html.loading:not(.ldr-go) #hx *,html.loading:not(.ldr-go) #hx *::before,html.loading:not(.ldr-go) #hx *::after{animation-play-state:paused!important}
 
 /* ===== Hero signature ===== */
 .sig{position:absolute;z-index:3;left:50%;top:calc(84px + 2svh);width:min(16vw,210px);translate:-50% 0;transform:skewX(-10deg);transform-origin:50% 100%;pointer-events:none;overflow:visible;
