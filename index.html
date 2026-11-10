@@ -663,6 +663,16 @@ html.loading:not(.ldr-go) #hx *,html.loading:not(.ldr-go) #hx *::before,html.loa
 :root[data-theme="dark"] .sig{color:#c8ff00}
 @media (max-width:700px){.sig{width:min(38vw,170px);top:calc(76px + 1svh)}}
 @media (prefers-reduced-motion:reduce){.sig path{animation:none!important;stroke-dashoffset:0}}
+ /* ===== Palette cleanup: no blue ===== */
+:root{--blue:#ff5a1f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blue:#ff5a1f}}
+:root[data-theme="dark"]{--blue:#ff5a1f}
+.cta{background:#c8ff00;color:#14161f}
+.cta h2{color:#14161f}
+.cta .btn{background:#14161f;color:#c8ff00}
+.cta .btn:hover{background:#ff5a1f;color:#fff}
+ 
+ 
  </style> 
 </head>
  
