@@ -666,8 +666,10 @@ html.loading:not(.pl-go) #hx *,html.loading:not(.pl-go) #hx *::before,html.loadi
 <script>(function(){
 var el=document.getElementById('pl'),n=document.getElementById('pln'),root=document.documentElement;
 if(!el||!root.classList.contains('loading'))return;
-var MIN=2200,MAX=8000,t0=performance.now(),ready=document.readyState==='complete',over=false;
-addEventListener('load',function(){ready=true});
+var MIN=2200,MAX=4000,t0=performance.now(),ready=false,over=false;
+function ok(){ready=true}
+addEventListener('DOMContentLoaded',function(){var im=document.getElementById('ph');if(!im||im.complete)ok();else{im.addEventListener('load',ok);im.addEventListener('error',ok)}});
+addEventListener('load',ok);setTimeout(ok,3000);
 function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
 function done(){if(over)return;over=true;el.classList.add('fin');
   setTimeout(function(){root.classList.add('pl-go');el.classList.add('go')},450);
