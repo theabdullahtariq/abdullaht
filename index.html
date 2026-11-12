@@ -868,6 +868,18 @@ html.loading .sc-cue{display:none}
 .nm[data-s="3"]{--gc1:rgba(255,90,31,.34);--gc2:rgba(139,91,255,.42)}
 .nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background-image:radial-gradient(70% 90% at 8% 0%,var(--gc1),transparent 72%),radial-gradient(65% 85% at 96% 100%,var(--gc2),transparent 72%)}
 </style>
+ <style>
+/* ===== Work with me: middle card in "How it works" style ===== */
+#pricing .pr .card:nth-child(2){background:linear-gradient(160deg,#7b4dff,#c266ff);color:#fff;--cc:#ff5a1f}
+#pricing .pr .card:nth-child(2)::before{width:52%;right:-16%;top:-18%}
+#pricing .pr .card:nth-child(2)::after{inset:auto;right:-7%;bottom:-6%;width:24%;height:auto;aspect-ratio:1;border-radius:26%;background:#c8ff00;opacity:1;animation:fl 12.6s ease-in-out infinite}
+#pricing .pr .card:nth-child(2) p,#pricing .pr .card:nth-child(2) .per{color:rgba(255,255,255,.88)!important;opacity:1}
+#pricing .pr .card:nth-child(2) li{border-top-color:rgba(255,255,255,.28)}
+#pricing .pr .card:nth-child(2) li::before{color:#fff}
+#pricing .pr .card:nth-child(2) .btn{background:#fff!important;color:#14161f!important}
+#pricing .pr .card:nth-child(2) .btn:hover{background:#14161f!important;color:#fff!important}
+@media (prefers-reduced-motion:reduce){#pricing .pr .card:nth-child(2)::after{animation:none}}
+</style>
 </head>
  
 <body>
