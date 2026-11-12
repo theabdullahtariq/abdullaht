@@ -802,6 +802,29 @@ html.loading .sc-cue{display:none}
 .tc:hover .tc-x{opacity:1;transform:none}
 }
 </style>
+ <style>
+/* ===== Colour calm-down: Work with me + Numbers ===== */
+
+/* Work with me: neutral cards, one lime hero card in the middle */
+#pricing .pr .card:nth-child(1),#pricing .pr .card:nth-child(3){background:var(--card);color:var(--ink);border:1px solid var(--line)}
+#pricing .pr .card:nth-child(1)::before,#pricing .pr .card:nth-child(3)::before{display:none}
+#pricing .pr .card:nth-child(2){background:#c8ff00;color:#14161f;--cc:#ff5a1f}
+#pricing .pr .card:nth-child(2)::before{width:36%;right:-8%;top:-10%}
+#pricing .pr .card:nth-child(1) p,#pricing .pr .card:nth-child(3) p,#pricing .pr .card:nth-child(1) .per,#pricing .pr .card:nth-child(3) .per{color:var(--mut)!important}
+#pricing .pr .card:nth-child(2) p,#pricing .pr .card:nth-child(2) .per{color:rgba(20,22,31,.75)!important}
+#pricing .pr .card:nth-child(1) li,#pricing .pr .card:nth-child(3) li{border-top-color:var(--line)}
+#pricing .pr .card:nth-child(1) li::before,#pricing .pr .card:nth-child(3) li::before{color:var(--ink)}
+#pricing .pr .card:nth-child(1) .btn,#pricing .pr .card:nth-child(3) .btn{background:var(--ink)!important;color:var(--bg)!important}
+#pricing .pr .card:nth-child(1) .btn:hover,#pricing .pr .card:nth-child(3) .btn:hover{background:#c8ff00!important;color:#14161f!important}
+#pricing .pr .card:nth-child(1)::after,#pricing .pr .card:nth-child(3)::after{background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),rgba(200,255,0,.25),transparent 65%)}
+
+/* Numbers: one lime card throughout, dark and white shapes only */
+.nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background:#c8ff00}
+.nm .a{--c:#fff}.nm .b{--c:#14161f}.nm .c{--c:#14161f}
+.nm[data-s="1"] .a{--c:#14161f}.nm[data-s="1"] .b{--c:#fff}.nm[data-s="1"] .c{--c:#fff}
+.nm[data-s="2"] .a{--c:#fff}.nm[data-s="2"] .b{--c:#14161f}.nm[data-s="2"] .c{--c:#14161f}
+.nm[data-s="3"] .a{--c:#14161f}.nm[data-s="3"] .b{--c:#fff}.nm[data-s="3"] .c{--c:#fff}
+</style>
 </head>
  
 <body>
