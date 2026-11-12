@@ -857,6 +857,16 @@ html.loading .sc-cue{display:none}
 /* stat 4: 1 person, orange body with two white eyes */
 .nm[data-s="3"] .a{--c:#ff5a1f}
 .nm[data-s="3"] .b,.nm[data-s="3"] .c{--c:#fff}
+</style
+ <style>
+/* ===== Numbers: soft gradient background ===== */
+@property --gc1{syntax:'<color>';inherits:false;initial-value:rgba(139,91,255,.42)}
+@property --gc2{syntax:'<color>';inherits:false;initial-value:rgba(255,90,31,.32)}
+.nm{--gc1:rgba(139,91,255,.42);--gc2:rgba(255,90,31,.32);transition:background-color 1.5s,--gc1 1.6s,--gc2 1.6s}
+.nm[data-s="1"]{--gc1:rgba(255,90,31,.36);--gc2:rgba(139,91,255,.4)}
+.nm[data-s="2"]{--gc1:rgba(194,102,255,.4);--gc2:rgba(255,90,31,.32)}
+.nm[data-s="3"]{--gc1:rgba(255,90,31,.34);--gc2:rgba(139,91,255,.42)}
+.nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background-image:radial-gradient(70% 90% at 8% 0%,var(--gc1),transparent 72%),radial-gradient(65% 85% at 96% 100%,var(--gc2),transparent 72%)}
 </style>
 </head>
  
