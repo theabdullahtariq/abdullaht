@@ -881,6 +881,18 @@ html.loading .sc-cue{display:none}
 .nm[data-s="3"]{--gc1:rgba(255,90,31,.34);--gc2:rgba(139,91,255,.42)}
 .nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background-image:radial-gradient(70% 90% at 8% 0%,var(--gc1),transparent 72%),radial-gradient(65% 85% at 96% 100%,var(--gc2),transparent 72%)}
 </style>
+ <style>
+/* ===== Final CTA ===== */
+.cta{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(160deg,#7b4dff,#c266ff);color:#fff}
+.cta::before{content:"";position:absolute;z-index:-1;left:-7%;top:-34%;width:clamp(180px,34vw,480px);aspect-ratio:1;border-radius:50%;background:#ff5a1f;animation:ctaf 10s ease-in-out infinite alternate}
+.cta::after{content:"";position:absolute;z-index:-1;right:7%;bottom:-8%;width:clamp(70px,14vw,190px);aspect-ratio:1;border-radius:26%;background:#c8ff00;animation:fl 12.6s ease-in-out infinite}
+@keyframes ctaf{to{transform:translate(6%,10%) scale(1.08)}}
+.cta h2{color:#fff}
+.cta-s{margin:0 auto 32px;max-width:34ch;font-size:clamp(1.05rem,1.5vw,1.3rem);color:rgba(255,255,255,.9)}
+.cta .btn{background:#c8ff00;color:#14161f;padding:16px 30px;font-size:1.05rem;box-shadow:0 14px 34px -12px rgba(0,0,0,.45)}
+.cta .btn::after{content:" →"}
+.cta .btn:hover{background:#fff;color:#14161f}
+</style>
 </head>
  
 <body>
