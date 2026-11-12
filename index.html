@@ -802,28 +802,43 @@ html.loading .sc-cue{display:none}
 .tc:hover .tc-x{opacity:1;transform:none}
 }
 </style>
- <style>
-/* ===== Colour calm-down: Work with me + Numbers ===== */
+<style>
+/* ===== Colour calm-down v2: less lime ===== */
 
-/* Work with me: neutral cards, one lime hero card in the middle */
+/* Work with me: neutral cards; the middle plan is inverted */
 #pricing .pr .card:nth-child(1),#pricing .pr .card:nth-child(3){background:var(--card);color:var(--ink);border:1px solid var(--line)}
 #pricing .pr .card:nth-child(1)::before,#pricing .pr .card:nth-child(3)::before{display:none}
-#pricing .pr .card:nth-child(2){background:#c8ff00;color:#14161f;--cc:#ff5a1f}
+#pricing .pr .card:nth-child(2){background:var(--ink);color:var(--bg);--cc:#ff5a1f}
 #pricing .pr .card:nth-child(2)::before{width:36%;right:-8%;top:-10%}
 #pricing .pr .card:nth-child(1) p,#pricing .pr .card:nth-child(3) p,#pricing .pr .card:nth-child(1) .per,#pricing .pr .card:nth-child(3) .per{color:var(--mut)!important}
-#pricing .pr .card:nth-child(2) p,#pricing .pr .card:nth-child(2) .per{color:rgba(20,22,31,.75)!important}
+#pricing .pr .card:nth-child(2) p,#pricing .pr .card:nth-child(2) .per{color:var(--bg)!important;opacity:.72}
 #pricing .pr .card:nth-child(1) li,#pricing .pr .card:nth-child(3) li{border-top-color:var(--line)}
+#pricing .pr .card:nth-child(2) li{border-top-color:color-mix(in srgb,var(--bg) 22%,transparent)}
 #pricing .pr .card:nth-child(1) li::before,#pricing .pr .card:nth-child(3) li::before{color:var(--ink)}
+#pricing .pr .card:nth-child(2) li::before{color:var(--bg)}
 #pricing .pr .card:nth-child(1) .btn,#pricing .pr .card:nth-child(3) .btn{background:var(--ink)!important;color:var(--bg)!important}
-#pricing .pr .card:nth-child(1) .btn:hover,#pricing .pr .card:nth-child(3) .btn:hover{background:#c8ff00!important;color:#14161f!important}
-#pricing .pr .card:nth-child(1)::after,#pricing .pr .card:nth-child(3)::after{background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),rgba(200,255,0,.25),transparent 65%)}
+#pricing .pr .card:nth-child(1) .btn:hover,#pricing .pr .card:nth-child(3) .btn:hover{background:var(--card)!important;color:var(--ink)!important;box-shadow:inset 0 0 0 2px var(--ink)}
+#pricing .pr .card:nth-child(2) .btn{background:#ff5a1f!important;color:#fff!important}
+#pricing .pr .card:nth-child(2) .btn:hover{background:var(--bg)!important;color:var(--ink)!important}
+#pricing .pr .card:nth-child(1)::after,#pricing .pr .card:nth-child(3)::after{background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--ink) 9%,transparent),transparent 65%)}
 
-/* Numbers: one lime card throughout, dark and white shapes only */
-.nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background:#c8ff00}
-.nm .a{--c:#fff}.nm .b{--c:#14161f}.nm .c{--c:#14161f}
-.nm[data-s="1"] .a{--c:#14161f}.nm[data-s="1"] .b{--c:#fff}.nm[data-s="1"] .c{--c:#fff}
-.nm[data-s="2"] .a{--c:#fff}.nm[data-s="2"] .b{--c:#14161f}.nm[data-s="2"] .c{--c:#14161f}
-.nm[data-s="3"] .a{--c:#14161f}.nm[data-s="3"] .b{--c:#fff}.nm[data-s="3"] .c{--c:#fff}
+/* Numbers: dark card like Approach, lime only on the ring and progress */
+.nm{--nmb:#14161f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nm{--nmb:#1a1d2b}}
+:root[data-theme="dark"] .nm{--nmb:#1a1d2b}
+.nm,.nm[data-s="1"],.nm[data-s="2"],.nm[data-s="3"]{background:var(--nmb);color:#f4f5fb;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.nm-tag{box-shadow:inset 0 0 0 1.5px rgba(244,245,251,.45)}
+.nm-tag i{background:#c8ff00}
+.nm .circ path{stroke:#c8ff00}
+.nm-rail button{color:rgba(244,245,251,.55)}
+.nm-rail button::before{background:rgba(244,245,251,.18)}
+.nm-rail button::after{background:#c8ff00}
+.nm-rail button.on{color:#f4f5fb}
+.nm .a,.nm[data-s="1"] .a,.nm[data-s="2"] .a{--c:rgba(255,255,255,.09)}
+.nm[data-s="3"] .a{--c:rgba(255,255,255,.14)}
+.nm .b,.nm[data-s="1"] .b,.nm[data-s="2"] .b{--c:rgba(255,255,255,.2)}
+.nm .c,.nm[data-s="1"] .c,.nm[data-s="2"] .c{--c:rgba(255,255,255,.2)}
+.nm[data-s="3"] .b,.nm[data-s="3"] .c{--c:#fff}
 </style>
 </head>
  
