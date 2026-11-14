@@ -914,6 +914,19 @@ html.loading .sc-cue{display:none}
 .ai-ic{background:#c8ff00}
 .ai-ic i{background:#14161f}
 </style>
+  <style>
+/* ===== Scroll mouse: smoother wheel ===== */
+.sc-mouse::after{animation:scw2 2.4s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes scw2{
+  0%{opacity:0;transform:translateY(-1px) scaleY(.6)}
+  18%{opacity:1;transform:translateY(0) scaleY(1)}
+  58%{opacity:1;transform:translateY(10px) scaleY(1.3)}
+  82%,100%{opacity:0;transform:translateY(13px) scaleY(.6)}
+}
+.sc-mouse{animation:scm 2.4s ease-in-out infinite}
+@keyframes scm{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+@media (prefers-reduced-motion:reduce){.sc-mouse,.sc-mouse::after{animation:none}}
+</style>
 </head>
  
 <body>
