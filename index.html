@@ -894,6 +894,26 @@ html.loading .sc-cue{display:none}
 .cta .btn::after{content:" →"}
 .cta .btn:hover{background:#fff;color:#14161f}
 </style>
+  <style>
+/* ===== Hero glow: one focal glow, softer edges ===== */
+@media (min-width:701px){
+.orb{background:radial-gradient(closest-side,
+  color-mix(in srgb,var(--og) 80%,transparent) 0%,
+  color-mix(in srgb,var(--og) 55%,transparent) 25%,
+  color-mix(in srgb,var(--og) 26%,transparent) 50%,
+  color-mix(in srgb,var(--og) 9%,transparent) 75%,
+  transparent 100%);filter:blur(24px)}
+}
+.stg::after{width:46vw;height:46vw;right:-22vw;bottom:-40svh;background:radial-gradient(closest-side,rgba(255,90,31,.18),rgba(255,90,31,0));animation:gl3 19s ease-in-out infinite alternate}
+@keyframes gl3{to{transform:translate(-4vw,-3svh) scale(1.08)}}
+
+/* optional: dark pill button instead of lime. Delete these lines to keep lime */
+.ai-fab{background:#14161f;color:#f4f5fb;box-shadow:inset 0 0 0 1.5px rgba(200,255,0,.55),0 14px 34px -12px rgba(0,0,0,.6)}
+.ai-fab::before{animation:aifp2 2.4s ease-out infinite}
+@keyframes aifp2{0%{box-shadow:0 0 0 0 rgba(200,255,0,.35)}100%{box-shadow:0 0 0 16px rgba(200,255,0,0)}}
+.ai-ic{background:#c8ff00}
+.ai-ic i{background:#14161f}
+</style>
 </head>
  
 <body>
