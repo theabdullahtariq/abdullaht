@@ -927,6 +927,49 @@ html.loading .sc-cue{display:none}
 @keyframes scm{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
 @media (prefers-reduced-motion:reduce){.sc-mouse,.sc-mouse::after{animation:none}}
 </style>
+  <style>
+/* ===== After hours ===== */
+.ah{position:relative;padding-top:var(--sp,120px);--gap2:clamp(22px,3vw,48px)}
+.ah-lt,.ah-rt{margin:0;font-weight:800;font-stretch:75%;line-height:.88;letter-spacing:-.02em;font-size:clamp(2.8rem,7.2vw,8.5rem)}
+.ah-lt{color:var(--ink);text-align:center}
+.ah-rt{color:color-mix(in srgb,var(--ink) 55%,var(--bg))}
+.ah-lt span,.ah-rt span{display:block;padding:.06em 0}
+.ah-cp{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.05rem,1.6vw,1.45rem);line-height:1.35;color:var(--ink)}
+.ah-cp em{color:#c8ff00;font-style:italic}
+.ah-ph{overflow:hidden;border-radius:6px}
+.ah-ph img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(var(--kb,1))}
+.ah-mk,.ah-ln{display:none}
+/* no motion: simple stack */
+.ah:not(.live) .ah-st{display:grid;gap:clamp(40px,7svh,70px);padding:0 5vw;justify-items:center}
+.ah:not(.live) .ah-rt{text-align:center}
+.ah:not(.live) .ah-scs{display:grid;gap:clamp(56px,9svh,90px);justify-items:center}
+.ah:not(.live) .ah-sc{display:grid;gap:18px;justify-items:center;text-align:center}
+.ah:not(.live) .ah-lt{order:-1}
+.ah:not(.live) .ah-ph{width:min(80vw,460px);aspect-ratio:1}
+/* live: pinned scroll scenes */
+.ah.live .ah-pin{height:calc(var(--ah-len,380)*1svh)}
+.ah.live .ah-st{position:sticky;top:0;height:100svh;overflow:hidden}
+.ah.live .ah-scs,.ah.live .ah-sc{position:absolute;inset:0}
+.ah.live .ah-ph{position:absolute;left:50%;top:calc(50% + var(--off,34px));width:var(--B);height:var(--B);margin:calc(var(--B)/-2) 0 0 calc(var(--B)/-2);transform:scale(var(--sc,1));opacity:var(--po,1);box-shadow:0 40px 80px -30px rgba(0,0,0,.65);will-change:transform,opacity}
+.ah.live .ah-lt{position:absolute;right:calc(50% + var(--F)/2 + var(--gap2));top:calc(50% + var(--off,34px));text-align:right;opacity:calc(var(--to,1)*(.08 + .92*var(--w,1)));transform:translate(calc((1 - var(--w,1))*-34px),calc(-50% + (1 - var(--to,1))*16px));will-change:transform,opacity}
+.ah.live .ah-rt{position:absolute;left:calc(50% + var(--F)/2 + var(--gap2));top:calc(50% + var(--off,34px));text-align:left;opacity:calc(.08 + .92*var(--w,1));transform:translate(calc((1 - var(--w,1))*34px),-50%)}
+.ah.live .ah-cp{position:absolute;left:50%;top:calc(50% + var(--off,34px) + var(--F)/2 + 26px);width:min(88vw,460px);text-align:center;opacity:calc(var(--to,1)*var(--w,1));transform:translate(-50%,calc((1 - var(--to,1))*12px))}
+.ah.live .ah-mk{display:block;position:absolute;left:50%;top:calc(50% + var(--off,34px));width:calc(var(--F) + 32px);height:calc(var(--F) + 32px);translate:-50% -50%;opacity:var(--mk,0);pointer-events:none}
+.ah-mk b{position:absolute;width:16px;height:16px;border:0 solid color-mix(in srgb,var(--ink) 60%,transparent)}
+.ah-mk b:nth-child(1){top:0;left:0;border-width:1.5px 0 0 1.5px}
+.ah-mk b:nth-child(2){top:0;right:0;border-width:1.5px 1.5px 0 0}
+.ah-mk b:nth-child(3){bottom:0;left:0;border-width:0 0 1.5px 1.5px}
+.ah-mk b:nth-child(4){bottom:0;right:0;border-width:0 1.5px 1.5px 0}
+.ah.live .ah-ln{display:block;position:absolute;left:50%;bottom:clamp(16px,3svh,30px);width:90px;height:2px;margin-left:-45px;background:linear-gradient(90deg,#c8ff00 calc(var(--f,0)*100%),var(--line) 0)}
+@media (max-width:700px){
+.ah-lt,.ah-rt{font-size:clamp(2.6rem,14vw,4.4rem)}
+.ah.live .ah-lt{right:auto;left:0;width:100%;top:auto;bottom:calc(50% - var(--off,10px) + var(--F)/2 + 32px);text-align:center;transform:translate(calc((1 - var(--w,1))*-24px),calc((1 - var(--to,1))*16px))}
+.ah.live .ah-rt{left:0;width:100%;top:calc(50% + var(--off,10px) + var(--F)/2 + 30px);text-align:center;transform:translate(calc((1 - var(--w,1))*24px),0)}
+.ah.live .ah-rt span{display:inline}
+.ah.live .ah-cp{top:calc(50% + var(--off,10px) + var(--F)/2 + 30px + .95*clamp(2.6rem,14vw,4.4rem) + 20px)}
+}
+@media (prefers-reduced-motion:reduce){.ah *{transition:none!important}}
+</style> 
 </head>
  
 <body>
@@ -1110,7 +1153,53 @@ requestAnimationFrame(tick);setTimeout(done,9000);
 <div class="nm-rail" role="tablist"><button type="button"><small>01</small><span>Around the clock</span></button><button type="button"><small>02</small><span>One builder</span></button><button type="button"><small>03</small><span>Student results</span></button><button type="button"><small>04</small><span>Start to finish</span></button></div>
 </section></div>
 
-
+<script>
+(function(){
+var sec=document.getElementById('afterhours');if(!sec)return;
+/* TO ADD A SCENE: copy one line below. img = file in assets, l = the two left words, c = caption (<em> = highlighted phrase) */
+var SC=[
+ {img:'assets/after-ride.webp',alt:'Abdullah on his motorbike',l:['Always','riding'],c:'Best ideas come <em>mid-ride</em>.'},
+ {img:'assets/after-box.webp',alt:'Abdullah boxing at the gym',l:['Boxing','rounds'],c:'Clearing my head, <em>one round at a time</em>.'}
+];
+var st=sec.querySelector('.ah-st'),pin=sec.querySelector('.ah-pin'),host=sec.querySelector('.ah-scs'),ln=sec.querySelector('.ah-ln');
+var G=SC.map(function(s){var g=document.createElement('div');g.className='ah-sc';
+ g.innerHTML='<div class="ah-ph"><img src="'+s.img+'" alt="'+s.alt+'" loading="lazy" decoding="async"></div><h3 class="ah-lt">'+s.l.map(function(w){return'<span>'+w+'</span>'}).join('')+'</h3><p class="ah-cp">'+s.c+'</p>';
+ host.appendChild(g);return g});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+sec.classList.add('live');
+var VHf=window.VH||function(){return innerHeight};
+var n=SC.length,I=.28,L=.36,hw=.05,S0=1,cur=0,tgt=0,on=false;
+function cl(v){return v<0?0:v>1?1:v}
+function ss(a,b,x){x=cl((x-a)/(b-a));return x*x*(3-2*x)}
+function eio(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function bd(i){return I+i*L}
+function geo(){var vw=innerWidth,vh=VHf(),m=vw<=700,B,F,off;
+ if(m){B=vw;F=Math.min(.66*vw,.36*vh);off=10}
+ else{B=Math.min(.96*vw,vh-96);F=Math.min(.58*vh,.40*vw);off=34;if(vh<560)F=Math.min(F,.44*vh)}
+ var D=m?60+80*n:80+100*n;I=(m?60:80)/D;L=(1-I)/n;hw=Math.min(.05,L*.2);
+ st.style.setProperty('--B',B.toFixed(1)+'px');st.style.setProperty('--F',F.toFixed(1)+'px');st.style.setProperty('--off',off+'px');
+ sec.style.setProperty('--ah-len',String(100+D));S0=F/B}
+function draw(p){
+ var e=eio(cl(p/I));
+ st.style.setProperty('--sc',(1+(S0-1)*e).toFixed(4));
+ st.style.setProperty('--w',ss(I*.5,I+.04,p).toFixed(3));
+ st.style.setProperty('--mk',ss(I*.65,I+.02,p).toFixed(3));
+ ln.style.setProperty('--f',p.toFixed(3));
+ G.forEach(function(g,i){
+  var po=1,to=1;
+  if(i>0){po*=ss(bd(i)-hw,bd(i)+hw,p);to*=ss(bd(i),bd(i)+hw,p)}
+  if(i<n-1){to*=1-ss(bd(i+1)-hw,bd(i+1),p)}
+  g.style.setProperty('--po',po.toFixed(3));g.style.setProperty('--to',to.toFixed(3));
+  g.style.setProperty('--kb',(1.06-.06*cl((p-(i?bd(i):I))/L)).toFixed(4))})}
+function aim(){var r=pin.getBoundingClientRect();tgt=cl(-r.top/((pin.offsetHeight-VHf())||1))}
+function loop(){var d=tgt-cur;if(Math.abs(d)<.0004){cur=tgt;draw(cur);on=false;return}cur+=d*.12;draw(cur);requestAnimationFrame(loop)}
+function kick(){aim();if(!on){on=true;requestAnimationFrame(loop)}}
+addEventListener('scroll',kick,{passive:true});
+addEventListener('resize',function(){geo();kick()});
+window.ahRest=function(){var a=[0,I+.05];for(var i=1;i<n;i++)a.push(bd(i)+hw+.02);return a};
+geo();aim();cur=tgt;draw(cur);
+})();
+</script>
 
 <section id="faq"><h2 class="rv">Questions</h2>
 <details><summary>What can you automate?</summary><p>Anything repetitive: lead follow-ups, CRM updates, invoices, email and WhatsApp replies, reports and more. If a person does it the same way every time, it can usually be automated.</p></details>
@@ -1415,8 +1504,8 @@ function(){if(!wp||innerWidth<=760)return;var s=wp.querySelector('.wks');if(!s||
 function(){if(!mp||!mp.classList.contains('live'))return;var c=mp.querySelector('.mf'),t=px(c,'top'),r=mp.offsetHeight-c.offsetHeight,y=abs(mp);
  return[0,.34,.985].map(function(p){return y-t+p*r})},
 function(){if(!np||!np.classList.contains('live'))return;var c=np.querySelector('.nm'),t=px(c,'top'),r=np.offsetHeight-c.offsetHeight,y=abs(np);
- return[0,.9,1.9,2.9,3.9].map(function(q){return y-t+(q/4*.96)*r})}
-];
+return[0,.9,1.9,2.9,3.9].map(function(q){return y-t+(q/4*.96)*r})},
+function(){var q=document.getElementById('afterhours');if(!q||!q.classList.contains('live')||!window.ahRest)return;var p=q.querySelector('.ah-pin'),y=abs(p),r=p.offsetHeight-VH();return window.ahRest().map(function(v){return y+v*r})}];
 function target(y,d){
  for(var i=0;i<S.length;i++){var p=S[i]();if(!p)continue;
   if(y<=p[0]+E||y>=p[p.length-1]-E)continue;
@@ -1516,5 +1605,52 @@ addEventListener('scroll',u,{passive:true})})();</script>
 cs.forEach(function(c){c.addEventListener('click',function(){
 if(!matchMedia('(hover:none)').matches)return;
 var o=c.classList.contains('open');cs.forEach(function(x){x.classList.remove('open')});if(!o)c.classList.add('open')})})})();</script>
+ <script>
+(function(){
+var sec=document.getElementById('afterhours');if(!sec)return;
+/* TO ADD A SCENE: copy one line below. img = file in assets, l = the two left words, c = caption (<em> = highlighted phrase) */
+var SC=[
+ {img:'assets/after-ride.webp',alt:'Abdullah on his motorbike',l:['Always','riding'],c:'Best ideas come <em>mid-ride</em>.'},
+ {img:'assets/after-box.webp',alt:'Abdullah boxing at the gym',l:['Boxing','rounds'],c:'Clearing my head, <em>one round at a time</em>.'}
+];
+var st=sec.querySelector('.ah-st'),pin=sec.querySelector('.ah-pin'),host=sec.querySelector('.ah-scs'),ln=sec.querySelector('.ah-ln');
+var G=SC.map(function(s){var g=document.createElement('div');g.className='ah-sc';
+ g.innerHTML='<div class="ah-ph"><img src="'+s.img+'" alt="'+s.alt+'" loading="lazy" decoding="async"></div><h3 class="ah-lt">'+s.l.map(function(w){return'<span>'+w+'</span>'}).join('')+'</h3><p class="ah-cp">'+s.c+'</p>';
+ host.appendChild(g);return g});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+sec.classList.add('live');
+var VHf=window.VH||function(){return innerHeight};
+var n=SC.length,I=.28,L=.36,hw=.05,S0=1,cur=0,tgt=0,on=false;
+function cl(v){return v<0?0:v>1?1:v}
+function ss(a,b,x){x=cl((x-a)/(b-a));return x*x*(3-2*x)}
+function eio(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function bd(i){return I+i*L}
+function geo(){var vw=innerWidth,vh=VHf(),m=vw<=700,B,F,off;
+ if(m){B=vw;F=Math.min(.66*vw,.36*vh);off=10}
+ else{B=Math.min(.96*vw,vh-96);F=Math.min(.58*vh,.40*vw);off=34;if(vh<560)F=Math.min(F,.44*vh)}
+ var D=m?60+80*n:80+100*n;I=(m?60:80)/D;L=(1-I)/n;hw=Math.min(.05,L*.2);
+ st.style.setProperty('--B',B.toFixed(1)+'px');st.style.setProperty('--F',F.toFixed(1)+'px');st.style.setProperty('--off',off+'px');
+ sec.style.setProperty('--ah-len',String(100+D));S0=F/B}
+function draw(p){
+ var e=eio(cl(p/I));
+ st.style.setProperty('--sc',(1+(S0-1)*e).toFixed(4));
+ st.style.setProperty('--w',ss(I*.5,I+.04,p).toFixed(3));
+ st.style.setProperty('--mk',ss(I*.65,I+.02,p).toFixed(3));
+ ln.style.setProperty('--f',p.toFixed(3));
+ G.forEach(function(g,i){
+  var po=1,to=1;
+  if(i>0){po*=ss(bd(i)-hw,bd(i)+hw,p);to*=ss(bd(i),bd(i)+hw,p)}
+  if(i<n-1){to*=1-ss(bd(i+1)-hw,bd(i+1),p)}
+  g.style.setProperty('--po',po.toFixed(3));g.style.setProperty('--to',to.toFixed(3));
+  g.style.setProperty('--kb',(1.06-.06*cl((p-(i?bd(i):I))/L)).toFixed(4))})}
+function aim(){var r=pin.getBoundingClientRect();tgt=cl(-r.top/((pin.offsetHeight-VHf())||1))}
+function loop(){var d=tgt-cur;if(Math.abs(d)<.0004){cur=tgt;draw(cur);on=false;return}cur+=d*.12;draw(cur);requestAnimationFrame(loop)}
+function kick(){aim();if(!on){on=true;requestAnimationFrame(loop)}}
+addEventListener('scroll',kick,{passive:true});
+addEventListener('resize',function(){geo();kick()});
+window.ahRest=function(){var a=[0,I+.05];for(var i=1;i<n;i++)a.push(bd(i)+hw+.02);return a};
+geo();aim();cur=tgt;draw(cur);
+})();
+</script>
 </body>
 </html>
