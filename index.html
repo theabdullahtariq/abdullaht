@@ -1153,53 +1153,15 @@ requestAnimationFrame(tick);setTimeout(done,9000);
 <div class="nm-rail" role="tablist"><button type="button"><small>01</small><span>Around the clock</span></button><button type="button"><small>02</small><span>One builder</span></button><button type="button"><small>03</small><span>Student results</span></button><button type="button"><small>04</small><span>Start to finish</span></button></div>
 </section></div>
 
-<script>
-(function(){
-var sec=document.getElementById('afterhours');if(!sec)return;
-/* TO ADD A SCENE: copy one line below. img = file in assets, l = the two left words, c = caption (<em> = highlighted phrase) */
-var SC=[
- {img:'assets/after-ride.webp',alt:'Abdullah on his motorbike',l:['Always','riding'],c:'Best ideas come <em>mid-ride</em>.'},
- {img:'assets/after-box.webp',alt:'Abdullah boxing at the gym',l:['Boxing','rounds'],c:'Clearing my head, <em>one round at a time</em>.'}
-];
-var st=sec.querySelector('.ah-st'),pin=sec.querySelector('.ah-pin'),host=sec.querySelector('.ah-scs'),ln=sec.querySelector('.ah-ln');
-var G=SC.map(function(s){var g=document.createElement('div');g.className='ah-sc';
- g.innerHTML='<div class="ah-ph"><img src="'+s.img+'" alt="'+s.alt+'" loading="lazy" decoding="async"></div><h3 class="ah-lt">'+s.l.map(function(w){return'<span>'+w+'</span>'}).join('')+'</h3><p class="ah-cp">'+s.c+'</p>';
- host.appendChild(g);return g});
-if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-sec.classList.add('live');
-var VHf=window.VH||function(){return innerHeight};
-var n=SC.length,I=.28,L=.36,hw=.05,S0=1,cur=0,tgt=0,on=false;
-function cl(v){return v<0?0:v>1?1:v}
-function ss(a,b,x){x=cl((x-a)/(b-a));return x*x*(3-2*x)}
-function eio(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
-function bd(i){return I+i*L}
-function geo(){var vw=innerWidth,vh=VHf(),m=vw<=700,B,F,off;
- if(m){B=vw;F=Math.min(.66*vw,.36*vh);off=10}
- else{B=Math.min(.96*vw,vh-96);F=Math.min(.58*vh,.40*vw);off=34;if(vh<560)F=Math.min(F,.44*vh)}
- var D=m?60+80*n:80+100*n;I=(m?60:80)/D;L=(1-I)/n;hw=Math.min(.05,L*.2);
- st.style.setProperty('--B',B.toFixed(1)+'px');st.style.setProperty('--F',F.toFixed(1)+'px');st.style.setProperty('--off',off+'px');
- sec.style.setProperty('--ah-len',String(100+D));S0=F/B}
-function draw(p){
- var e=eio(cl(p/I));
- st.style.setProperty('--sc',(1+(S0-1)*e).toFixed(4));
- st.style.setProperty('--w',ss(I*.5,I+.04,p).toFixed(3));
- st.style.setProperty('--mk',ss(I*.65,I+.02,p).toFixed(3));
- ln.style.setProperty('--f',p.toFixed(3));
- G.forEach(function(g,i){
-  var po=1,to=1;
-  if(i>0){po*=ss(bd(i)-hw,bd(i)+hw,p);to*=ss(bd(i),bd(i)+hw,p)}
-  if(i<n-1){to*=1-ss(bd(i+1)-hw,bd(i+1),p)}
-  g.style.setProperty('--po',po.toFixed(3));g.style.setProperty('--to',to.toFixed(3));
-  g.style.setProperty('--kb',(1.06-.06*cl((p-(i?bd(i):I))/L)).toFixed(4))})}
-function aim(){var r=pin.getBoundingClientRect();tgt=cl(-r.top/((pin.offsetHeight-VHf())||1))}
-function loop(){var d=tgt-cur;if(Math.abs(d)<.0004){cur=tgt;draw(cur);on=false;return}cur+=d*.12;draw(cur);requestAnimationFrame(loop)}
-function kick(){aim();if(!on){on=true;requestAnimationFrame(loop)}}
-addEventListener('scroll',kick,{passive:true});
-addEventListener('resize',function(){geo();kick()});
-window.ahRest=function(){var a=[0,I+.05];for(var i=1;i<n;i++)a.push(bd(i)+hw+.02);return a};
-geo();aim();cur=tgt;draw(cur);
-})();
-</script>
+<section class="ah" id="afterhours" aria-label="After hours">
+<div class="ah-pin"><div class="ah-st">
+<h2 class="ah-rt"><span>After</span> <span>hours</span></h2>
+<div class="ah-scs"></div>
+<span class="ah-mk" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+<i class="ah-ln" aria-hidden="true"></i>
+</div></div>
+</section>
+
 
 <section id="faq"><h2 class="rv">Questions</h2>
 <details><summary>What can you automate?</summary><p>Anything repetitive: lead follow-ups, CRM updates, invoices, email and WhatsApp replies, reports and more. If a person does it the same way every time, it can usually be automated.</p></details>
